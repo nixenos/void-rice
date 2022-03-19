@@ -1,5 +1,22 @@
 #!/bin/bash
 
+echo "Install my packages"
+
+while read item; do sudo xbps-install -y $item; done < "installed_packages"
+
+echo "Enable used services"
+
+sudo ln -s /etc/sv/NetworkManager /etc/runit/runsvdir/default
+sudo ln -s /etc/sv/tlp /etc/runit/runsvdir/default
+sudo ln -s /etc/sv/cronie /etc/runit/runsvdir/default
+sudo ln -s /etc/sv/elogind /etc/runit/runsvdir/default
+sudo ln -s /etc/sv/nginx /etc/runit/runsvdir/default
+sudo ln -s /etc/sv/chronyd /etc/runit/runsvdir/default
+sudo ln -s /etc/sv/bluetoothd /etc/runit/runsvdir/default
+sudo ln -s /etc/sv/udevd /etc/runit/runsvdir/default
+sudo ln -s /etc/sv/dbus /etc/runit/runsvdir/default
+sudo ln -s /etc/sv/cupsd /etc/runit/runsvdir/default
+
 echo "Copy .config dotfiles"
 
 cp -r alacritty ~/.config/
@@ -26,7 +43,7 @@ chmod +x ~/.local/bin/*
 echo "Prepare .install directory and install packages from it"
 mkdir ~/.install
 git clone https://github.com/void-linux/void-packages.git ~/.install/void-packages
-cd .install/void-packages && ./xbps-src binary-bootstrap
+cd ~/.install/void-packages && ./xbps-src binary-bootstrap
 
 echo "Install rofi-pass"
 cd ~
