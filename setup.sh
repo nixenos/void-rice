@@ -82,6 +82,10 @@ cd ~/.install/nixdwmblocks/
 make
 sudo make install
 
+echo "Setup void-packages"
+git clone https://github.com/void-linux/void-packages.git ~/.install/void-packages
+cd ~/.install/void-packages && ./xbps-src binary-bootstrap
+
 echo "Generate SSH key"
 ssh-keygen -t ed25519 -C "wojciech@janota.ovh"
 eval "$(ssh-agent -s)"
