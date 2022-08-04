@@ -10,8 +10,6 @@ acpid
 acpi
 tlp
 adwaita-icon-theme
-alacritty
-alacritty-terminfo
 alsa-lib
 alsa-utils
 arandr
@@ -37,7 +35,6 @@ bluez
 bluez-alsa
 boost
 brotli
-bspwm
 btrfs-progs
 bubblewrap
 bzip2
@@ -799,7 +796,6 @@ sqlite
 sratom
 startup-notification
 sudo
-sxhkd
 taglib
 talloc
 tar

@@ -1,3 +1,0 @@
-#!/bin/sh
-# xbps-install -S
-xbps-install -Sun | wc -l
